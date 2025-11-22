@@ -1,0 +1,349 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+/* Подключаем кастомный шрифт DrukCyr */
+@font-face {
+    font-family: 'DrukCyr';
+    src: url('./fonts/DrukCyr-SuperItalic.woff2') format('woff2'),
+         url('./fonts/DrukCyr-SuperItalic.woff') format('woff'),
+         url('./fonts/DrukCyr-SuperItalic.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+body {
+    --bg-color: #ffffff;
+    --fg-color: #111111;
+    --accent-color: #ff0040;
+    background: var(--bg-color);
+    color: var(--fg-color);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* Темы */
+
+body.theme-none {
+    --bg-color: #0b0b0b;
+    --fg-color: #f5f5f5;
+}
+
+body.theme-examples,
+body.theme-instagram {
+    --bg-color: #fdfdfd;
+    --fg-color: #111111;
+}
+
+body.theme-about,
+body.theme-savee {
+    --bg-color: #050505;
+    --fg-color: #f5f5f5;
+}
+
+/* Общий контейнер */
+
+.page {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Навигация по углам */
+
+.nav-corners {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.nav-link {
+    position: absolute;
+    border: none;
+    background: none;
+    color: var(--fg-color);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 16px 22px;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: color 0.25s ease, transform 0.25s ease, opacity 0.25s ease;
+    opacity: 0.8;
+    font-family: 'DrukCyr', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    opacity: 1;
+    transform: translateY(-1px);
+}
+
+.nav-tl {
+    top: 0;
+    left: 0;
+}
+
+.nav-tr {
+    top: 0;
+    right: 0;
+}
+
+.nav-bl {
+    bottom: 0;
+    left: 0;
+}
+
+.nav-br {
+    bottom: 0;
+    right: 0;
+}
+
+/* Центровой текст */
+
+.center-wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+
+.center-word {
+    position: relative;
+    font-size: clamp(64px, 16vw, 190px);
+    font-weight: 900;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    filter: blur(0px);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    white-space: nowrap;
+    font-family: 'DrukCyr', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Появление текста */
+
+.center-word.is-active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Отдельные буквы */
+
+.center-word span {
+    display: inline-block;
+    filter: blur(12px);
+    transition: filter 0.18s ease, transform 0.18s ease, opacity 0.18s ease;
+    pointer-events: auto;
+}
+
+/* При наведении по слову */
+
+.center-word:hover span {
+    opacity: 0.6;
+}
+
+/* Конкретная буква под курсором */
+
+.center-word span:hover {
+    filter: blur(0);
+    transform: translateY(-4px) scale(1.16);
+    opacity: 1;
+}
+
+/* Маленькая подпись */
+
+.center-label {
+    position: absolute;
+    top: 52px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    opacity: 0.6;
+}
+
+/* Лёгкий круглый прицел */
+
+.page::before {
+    content: "";
+    position: absolute;
+    width: 180vmin;
+    height: 180vmin;
+    border-radius: 50%;
+    border: 1px solid rgba(120, 120, 120, 0.08);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+/* Вертикальная линия */
+
+.page::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 120%;
+    left: 50%;
+    top: -10%;
+    background: rgba(120, 120, 120, 0.08);
+    pointer-events: none;
+}
+
+/* =========================================
+   PROFILE DASHBOARD STYLES
+   ========================================= */
+
+.profile-dashboard {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    background-color: #111; /* Darker background as per screenshot */
+    color: #fff;
+    font-family: 'DrukCyr', system-ui, -apple-system, sans-serif;
+}
+
+.dashboard-header {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.dashboard-id-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.dashboard-id {
+    font-size: clamp(40px, 5vw, 80px);
+    font-weight: 900;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: start;
+}
+
+.dashboard-card {
+    background: #1a1a1a;
+    border-radius: 30px;
+    padding: 40px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.card-title {
+    font-size: 24px;
+    margin: 0 0 30px 0;
+    padding: 10px 20px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    display: inline-block;
+    align-self: flex-start;
+    font-weight: normal;
+    letter-spacing: 0.05em;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    margin-top: 20px;
+    align-items: center; /* Center content like in screenshot */
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    max-width: 300px; /* Limit width to match screenshot look */
+    text-align: center;
+}
+
+.input-group label {
+    font-size: 12px;
+    opacity: 0.6;
+    letter-spacing: 0.1em;
+}
+
+.input-group input {
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    padding: 5px;
+    font-family: inherit;
+    outline: none;
+}
+
+.btn-change {
+    margin-top: 30px;
+    background: #2a2a2a;
+    color: #fff;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 12px;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+    text-transform: uppercase;
+}
+
+.btn-change:hover {
+    background: #3a3a3a;
+}
+
+.archive-card {
+    /* Empty state styling if needed */
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .profile-dashboard {
+        padding: 20px;
+    }
+    
+    .dashboard-header {
+        position: static;
+        margin-bottom: 40px;
+        text-align: center;
+    }
+}

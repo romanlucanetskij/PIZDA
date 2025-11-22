@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ABOUT — NAE*LOVO</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Лёгкий layout поверх общего стиля */
+
+        body.theme-none {
+            --bg-color: #050505;
+            --fg-color: #f5f5f5;
+        }
+
+        .about-shell {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .about-header {
+            position: absolute;
+            top: 48px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .about-logo {
+            font-family: 'DrukCyr', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 28px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+        }
+
+        .about-tagline {
+            margin-top: 10px;
+            font-size: 11px;
+            letter-spacing: 0.28em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .about-main {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 60px;
+        }
+
+        .about-content {
+            max-width: 900px;
+            width: 100%;
+        }
+
+        .about-title {
+            font-family: 'DrukCyr', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 18px;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .about-text {
+            font-size: 13px;
+            line-height: 1.7;
+            max-width: 640px;
+            opacity: 0.85;
+            margin-bottom: 40px;
+        }
+
+        .faq {
+            border-top: 1px solid rgba(245, 245, 245, 0.12);
+            padding-top: 20px;
+        }
+
+        .faq-label {
+            font-size: 11px;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 16px;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(245, 245, 245, 0.08);
+        }
+
+        .faq-question {
+            width: 100%;
+            border: none;
+            background: none;
+            color: inherit;
+            padding: 16px 0;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .faq-question-text {
+            flex: 1;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            font-family: 'DrukCyr', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        .faq-toggle {
+            font-size: 14px;
+            margin-left: 12px;
+            opacity: 0.6;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .faq-item.open .faq-toggle {
+            transform: rotate(45deg);
+            opacity: 1;
+        }
+
+        .faq-answer-wrapper {
+            overflow: hidden;
+            max-height: 0;
+            transition: max-height 0.25s ease;
+        }
+
+        .faq-answer {
+            padding: 0 0 16px 0;
+            font-size: 13px;
+            line-height: 1.8;
+            opacity: 0.85;
+        }
+
+        @media (max-width: 768px) {
+            .about-main {
+                padding-top: 140px;
+            }
+            .about-logo {
+                font-size: 22px;
+                letter-spacing: 0.2em;
+            }
+            .about-text {
+                font-size: 12px;
+            }
+            .faq-question {
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+<body class="theme-none">
+<div class="page">
+    <div class="about-shell">
+        <!-- Верхний лейбл -->
+        <header class="about-header">
+            <div class="about-logo">NAE*LOVO</div>
+            <div class="about-tagline">
+                STREETWEAR FOR THOSE WHO ARE TIRED OF BEING NORMAL
+            </div>
+        </header>
+
+        <!-- Основное содержимое -->
+        <main class="about-main">
+            <section class="about-content">
+                <div class="about-title">ABOUT</div>
+                <p class="about-text">
+                    NAE*LOVO — это уличная одежда для тех, кто устал выглядеть так,
+                    будто его собирали родители на первый звонок. Мы не делаем «ещё один базовый худи».
+                    Мы делаем вещи, в которых удобно жить, орать, спать, работать и случайно разрушать чьи-то ожидания.
+                </p>
+
+                <section class="faq">
+                    <div class="faq-label">Часто задаваемые вопросы</div>
+
+                    <!-- 1 -->
+                    <article class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span class="faq-question-text">
+                                Чем вообще занимается ваша компания?
+                            </span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Мы придумываем и шьём уличную одежду, в которой ты выглядишь так,
+                                будто знаешь, что делаешь, даже если нет. Худи, свитшоты, футболки, штаны —
+                                всё, что можно надеть и не почувствовать себя офисным стулом.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 2 -->
+                    <article class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span class="faq-question-text">
+                                Почему NAE*LOVO? Вы меня что, реально нае*ываете?
+                            </span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Честнее сразу сказать в названии, чем потом делать вид, что «это просто игра слов».
+                                Мы не продаём «истории», «миссии» и «ценности». Мы продаём вещи, которые не стыдно носить,
+                                и честно называем бренд так, как все всё равно подумают.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 3 -->
+                    <article class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span class="faq-question-text">
+                                Для кого эта одежда?
+                            </span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Для людей, у которых в голове смесь «хочу выглядеть стильно»
+                                и «мне лень заморачиваться». Для тех, кто может идти в одном худи:
+                                в универ, на вписку, в ночной магазин за дошиком и обратно в кровать.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 4 -->
+                    <article class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span class="faq-question-text">
+                                Это качественно или одноразка до первой стирки?
+                            </span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Мы не шьём шмот, который расползается быстрее, чем мотивация с понедельника.
+                                Нормальные ткани, нормальный крой, фурнитура, которая не умирает от взгляда.
+                                Не «люкс за икеевские деньги», но и не тряпка «на один TikTok».
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 5 -->
+                    <article class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span class="faq-question-text">
+                                Делаете кастом? Хочу свой текст/принт/безумие.
+                            </span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Да, мы можем нанести твой текст, фразу, логотип или личный инсульт миру.
+                                Если идея тупая, но честная — обсудим. Если идея тупая и скучная — мы такие не любим.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 6 -->
+                    <article class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span class="faq-question-text">
+                                Где вообще можно носить NAE*LOVO?
+                            </span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Везде, где ты не хочешь выглядеть как НПС:
+                                улица, концерты, пары, работа без дресс-кода, метро, ночные прогулки
+                                и те странные места, куда ты попадаешь «по приколу».
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 7 -->
+                    <article class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span class="faq-question-text">
+                                Это бренд или очередной «мерч с подвала»?
+                            </span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Мы слишком стараемся, чтобы быть «мерчом с подвала», и слишком честные,
+                                чтобы строить из себя «премиальный дом моды». Мы маленькая команда,
+                                которая делает шмот, в котором сами ходили бы каждый день. Собственно, и ходим.
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 8 -->
+                    <article class="faq-item">
+                        <button class="faq-question" type="button">
+                            <span class="faq-question-text">
+                                Как ухаживать за вещами, чтобы они не сдохли через неделю?
+                            </span>
+                            <span class="faq-toggle">+</span>
+                        </button>
+                        <div class="faq-answer-wrapper">
+                            <div class="faq-answer">
+                                Не мучай вещи так же, как свою психику.
+                                Стирай на деликатном режиме, не вари в кипятке,
+                                не жарь на максимуме и не гладь по принтам.
+                                Тогда они проживут дольше большинства твоих отношений.
+                            </div>
+                        </div>
+                    </article>
+
+                </section>
+            </section>
+        </main>
+    </div>
+</div>
+
+<script>
+    // Аккордеон FAQ
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+        const btn = item.querySelector('.faq-question');
+        const wrapper = item.querySelector('.faq-answer-wrapper');
+
+        btn.addEventListener('click', () => {
+            const isOpen = item.classList.contains('open');
+
+            // закрываем все остальные
+            faqItems.forEach(other => {
+                if (other !== item) {
+                    other.classList.remove('open');
+                    const w = other.querySelector('.faq-answer-wrapper');
+                    if (w) w.style.maxHeight = 0;
+                }
+            });
+
+            if (!isOpen) {
+                item.classList.add('open');
+                wrapper.style.maxHeight = wrapper.scrollHeight + 'px';
+            } else {
+                item.classList.remove('open');
+                wrapper.style.maxHeight = 0;
+            }
+        });
+    });
+
+    // ставим тему по умолчанию как тёмную (about-вайб)
+    document.body.className = 'theme-about';
+</script>
+</body>
+</html>
